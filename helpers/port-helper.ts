@@ -1,9 +1,6 @@
-import { parse } from "https://deno.land/std@0.74.0/flags/mod.ts";
-
 const DEFAULT_PORT = 3000;
 
-export function getPortFromArgs(): number | undefined {
-  const args = parse(Deno.args);
+export function getPortFromArgs(args: { [arg: string]: string | number }): number | undefined {
   return Number(args.port) || Number(args.p) || undefined;
 }
 
