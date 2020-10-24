@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.74.0/http/server.ts";
+import { getPortFromArgs, getPortFromEnv, getDefaultPort } from "./helpers/port-helper.ts";
 
-const port = 3000;
+const port = getPortFromArgs() || getPortFromEnv() || getDefaultPort();
 
 const server = serve({ port });
 console.log(`CORS proxy server listening at port ${port}`);
