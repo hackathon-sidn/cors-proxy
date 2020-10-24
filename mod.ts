@@ -21,7 +21,7 @@ for await (const req of server) {
       const response = await fetch(url);
       const text = await response.text();
       const headers = new Headers();
-      headers.set("Access-Control-Allow-Origin", "*"); // TODO: configure allowed origins
+      headers.set("Access-Control-Allow-Origin", (args["allowed-origins"] || args["o"] || "*").toString());
       req.respond({ body: text, headers });
     } else {
       req.respond({ status: 404, body: "404 Not Found" });
