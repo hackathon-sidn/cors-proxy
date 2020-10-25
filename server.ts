@@ -1,7 +1,12 @@
 import { serve } from "https://deno.land/std@0.74.0/http/server.ts";
 import { isUrlAllowed } from "./helpers/allowed-urls-helper.ts";
 
-export async function run(port: number, route: string, allowedUrls: string, allowedOrigins: string) {
+export async function run(
+  port: number,
+  route: string,
+  allowedUrls: string,
+  allowedOrigins: string,
+) {
   const server = serve({ port });
   console.log(`CORS proxy server listening at port ${port}.`);
 

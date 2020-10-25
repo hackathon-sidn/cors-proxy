@@ -14,9 +14,14 @@ export function isUrlAllowed(url: string, rules: string): boolean {
        *        (to avoid using rule as subdomain, e.g. https://duck.com.example.com/)
        *        e.g. rule: https://example.com/path1, url: https://example.com/path123)
        */
-      const ruleWithoutTrailingSlash = rule.endsWith("/") ? rule.substr(0, rule.length - 1) : rule;
+      const ruleWithoutTrailingSlash = rule.endsWith("/")
+        ? rule.substr(0, rule.length - 1)
+        : rule;
       const ruleContainsPath = (rule.match(/\//g) || []).length >= 3;
-      return url === ruleWithoutTrailingSlash || url.startsWith(rule + (ruleContainsPath || rule.endsWith("/") ? "" : "/"));
+      return url === ruleWithoutTrailingSlash ||
+        url.startsWith(
+          rule + (ruleContainsPath || rule.endsWith("/") ? "" : "/"),
+        );
     });
   }
   return true;

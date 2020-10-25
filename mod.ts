@@ -12,16 +12,24 @@ if (args.help) {
 }
 
 const port = Number(
-  getValueFromArgs(args, [config.port.argsLong, config.port.argsShort]) || getValueFromEnv(config.port.env) || config.port.default
+  getValueFromArgs(args, [config.port.argsLong, config.port.argsShort]) ||
+    getValueFromEnv(config.port.env) || config.port.default,
 );
 const corsRoutePrefix =
-  getValueFromArgs(args, [config.route.argsLong, config.route.argsShort]) || getValueFromEnv(config.route.env) || config.route.default;
+  getValueFromArgs(args, [config.route.argsLong, config.route.argsShort]) ||
+  getValueFromEnv(config.route.env) || config.route.default;
 const allowedUrls =
-  getValueFromArgs(args, [config.allowedUrls.argsLong, config.allowedUrls.argsShort]) ||
+  getValueFromArgs(
+    args,
+    [config.allowedUrls.argsLong, config.allowedUrls.argsShort],
+  ) ||
   getValueFromEnv(config.allowedUrls.env) ||
   config.allowedUrls.default;
 const allowedOrigins =
-  getValueFromArgs(args, [config.allowedOrigins.argsLong, config.allowedOrigins.argsShort]) ||
+  getValueFromArgs(
+    args,
+    [config.allowedOrigins.argsLong, config.allowedOrigins.argsShort],
+  ) ||
   getValueFromEnv(config.allowedOrigins.env) ||
   config.allowedOrigins.default;
 

@@ -1,6 +1,7 @@
 import { config } from "../config.ts";
 
-const HELP_TEXT = `This CORS proxy fetches remote URLs and adds CORS headers so that blocked Cross-Origin requests belong to the past.
+const HELP_TEXT =
+  `This CORS proxy fetches remote URLs and adds CORS headers so that blocked Cross-Origin requests belong to the past.
 
 You can adjust the following settings when using this module:
   -${config.port.argsShort}, --${config.port.argsLong}, env: ${config.port.env}
