@@ -8,7 +8,7 @@ Instead of fetching `https://duck.com` you can now fetch `http://localhost:3000/
 
 ## Configuration
 
-You can configure the port, allowed URLs and allowed origins of the server via these arguments:
+You can configure the port, route, allowed URLs and allowed origins of the server via these arguments:
 
 ```console
 $ deno run https://deno.land/x/cors_proxy/mod.ts --help
