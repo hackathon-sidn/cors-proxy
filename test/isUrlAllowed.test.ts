@@ -55,7 +55,7 @@ Deno.test("url starts with rule without trailing slash (rule: https://example.co
 });
 
 Deno.test("url starts with rule and trailing slash (rule: https://example.com/path1/, url: https://example.com/path1/12", () => {
-  const rules = "http://bar.xyz,https://foo.bar/path";
+  const rules = "http://bar.xyz,https://foo.bar/path/";
   const url = "https://foo.bar";
 
   assertEquals(isUrlAllowed(url + "/path", rules), true);
