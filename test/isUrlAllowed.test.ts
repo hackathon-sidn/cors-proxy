@@ -54,27 +54,29 @@ Deno.test("url starts with rule without trailing slash (rule: https://example.co
   assertEquals(isUrlAllowed(url, rules), false);
 });
 
-Deno.test("url starts with rule and trailing slash (rule: https://example.com/path1/, url: https://example.com/path1/12", () => {
+Deno.test("url starts with rule and trailing slash (rule: https://example.com/path1/, url: https://example.com/path1/12)", () => {
   const rules = "http://bar.xyz,https://foo.bar/path/";
   const url = "https://foo.bar";
 
   assertEquals(isUrlAllowed(url + "/path", rules), true);
   assertEquals(isUrlAllowed(url + "/path/12", rules), true);
   assertEquals(isUrlAllowed(url + "/path12", rules), false);
+  assertEquals(isUrlAllowed(url + "/path12/", rules), false);
   assertEquals(isUrlAllowed(url + "/wrong", rules), false);
   assertEquals(isUrlAllowed(url + "/", rules), false);
   assertEquals(isUrlAllowed(url, rules), false);
 });
 
+// every url is allowed when no rule is given
 Deno.test("no rules given", () => {
   const rules = "";
   const url = "https://foo.bar";
-  const illegalUrl = "https://foo.bar.impostor.com";
 
   assertEquals(isUrlAllowed(url + "/path", rules), true);
   assertEquals(isUrlAllowed(url + "/path12", rules), true);
   assertEquals(isUrlAllowed(url + "/wrong", rules), true);
   assertEquals(isUrlAllowed(url + "/", rules), true);
   assertEquals(isUrlAllowed(url + "", rules), true);
-  assertEquals(isUrlAllowed(illegalUrl, rules), true);
+  assertEquals(isUrlAllowed("https://foo.bar.impostor.com", rules), true);
+  assertEquals(isUrlAllowed("http://test.test", rules), true);
 });
