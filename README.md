@@ -25,3 +25,12 @@ You can adjust the following settings when using this module:
     Value for Access-Control-Allow-Origin header
     Default: "*" (all origins are allowed)
 ```
+
+## Example usage
+
+```console
+$ deno run --allow-net https://deno.land/x/cors_proxy/mod.ts \
+    --port 1337 \
+    --allowed-urls https://duck.com,https://firefox.com \
+    --allowed-origins https://my-webapp.example.com
+```
