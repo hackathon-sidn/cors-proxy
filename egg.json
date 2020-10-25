@@ -1,0 +1,26 @@
+{
+    "$schema": "https://x.nest.land/eggs@0.3.0/src/schema.json",
+    "name": "cors-proxy",
+    "entry": "./mod.ts",
+    "description": "This CORS proxy fetches remote URLs and adds CORS headers so that blocked Cross-Origin requests belong to the past.",
+    "homepage": "https://github.com/hackathon-sidn/cors-proxy",
+    "unstable": false,
+    "unlisted": false,
+    "version": "0.0.1",
+    "releaseType": "patch",
+    "files": [
+        "./mod.ts",
+        "./config.ts",
+        "./server.ts",
+        "./helpers/**/*",
+        "./test/**/*",
+        "./README.md"
+    ],
+    "ignore": [
+        ".git"
+    ],
+    "checkFormat": "deno fmt",
+    "checkTests": "deno test",
+    "checkInstallation": true,
+    "check": false
+}
