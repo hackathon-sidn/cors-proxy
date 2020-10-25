@@ -4,8 +4,8 @@
  * @param rules Comma separated list of rules (e.g. "https://duck.com,https://example.com")
  */
 export function isUrlAllowed(url: string, rules: string): boolean {
-  const rulesList = rules.split(",");
-  if (rulesList.length > 0) {
+  if (rules !== "") {
+    const rulesList = rules.split(",");
     return rulesList.some((rule) => {
       /**
        * a) rule without trailing slash matches exactly with url (e.g. rule: https://duck.com/, url: https://duck.com)
