@@ -16,7 +16,7 @@ export function isUrlAllowed(url: string, rules: string): boolean {
        */
       const ruleWithoutTrailingSlash = rule.endsWith("/") ? rule.substr(0, rule.length - 1) : rule;
       const ruleContainsPath = (rule.match(/\//g) || []).length >= 3;
-      return url === ruleWithoutTrailingSlash || url.startsWith(ruleWithoutTrailingSlash + (ruleContainsPath ? "" : "/"));
+      return url === ruleWithoutTrailingSlash || url.startsWith(rule + (ruleContainsPath || rule.endsWith("/") ? "" : "/"));
     });
   }
   return true;
