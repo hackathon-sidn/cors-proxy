@@ -1,5 +1,7 @@
 # cors-proxy
 
+[![nest badge](https://nest.land/badge-large.svg)](https://nest.land/package/cors-proxy)
+
 ```console
 $ deno run --allow-net https://deno.land/x/cors_proxy/mod.ts
 ```
@@ -38,6 +40,7 @@ You can adjust the following settings when using this module:
 ```console
 $ deno run --allow-net https://deno.land/x/cors_proxy/mod.ts \
     --port 1337 \
+    --route / \
     --allowed-urls https://duck.com,https://firefox.com \
     --allowed-origins https://my-webapp.example.com
 ```
