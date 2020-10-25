@@ -4,6 +4,26 @@ import { getPortFromArgs, getPortFromEnv, getDefaultPort } from "./helpers/port-
 import { isUrlAllowed } from "./helpers/allowed-urls-helper.ts";
 
 const args = parse(Deno.args);
+
+if (args.help) {
+  console.log(`This CORS proxy fetches remote URLs and adds CORS headers so that blocked Cross-Origin requests belong to the past.
+
+You can adjust the following settings when using this module:
+  -p, --port
+    Port - set the port for your server (number)
+    Default: ${getDefaultPort()}
+
+  -u, --allowed-urls
+    URLs to serve - set URLs you want to be able to forward (comma separated list)
+    Default: "" (all URLs are allowed)
+
+  -o, --allowed-origins
+    Value for Access-Control-Allow-Origin header
+    Default: "*" (all origins are allowed)
+  `);
+  Deno.exit();
+}
+
 const port = getPortFromArgs(args) || getPortFromEnv() || getDefaultPort();
 
 const server = serve({ port });
